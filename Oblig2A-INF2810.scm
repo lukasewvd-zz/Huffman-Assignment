@@ -49,4 +49,47 @@ a1 a2 a3)
           ((eq? (car rest) symb) #t)
           (else (iter (cdr rest)))))
   (iter items))
+
+;;b)
+
+;;Man lager en intern hjelpeprosedyre, fordi man vil endre på current-branch, mens
+;;man fortsatt har tilgang til roten av treet (tree) som fortsatt er tilgjengelig
+;;i decode. Dersom man bare hadde kalt på decode i stedenfor decode-1, ville man
+;;ha mistet roten etter første rekursive kall på decode
+
+;;c)
+
+(define (haledecode bits tree)
+  (define (haledecode-1 bits current-branch items)
+    (if (null? bits)
+        (reverse items)
+        (let ((next-branch
+               (choose-branch (car bits) current-branch)))
+          (if (leaf? next-branch)
+              (haledecode-1 (cdr bits)
+                            tree
+                            (cons (symbol-leaf next-branch)
+                                  items))
+              (haledecode-1 (cdr bits)
+                            next-branch
+                            items))))) 
+  (haledecode-1 bits tree '()))
+
+
+;;d)
+(haledecode sample-code sample-tree)
+;;(ninjas fight ninjas by night)
+
+
+;;e)
+(define (encode items tree)
+  (define (encode-1 items current-branch)
+    (if (null? items)
+      '()
+      (if (leaf? current-branch)
+          (encode-1 (cdr items) tree)
           
+      
+
+
+  
