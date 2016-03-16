@@ -40,7 +40,7 @@ foo 20)
 (map (lambda (x y z) (y x z))
 a1 a2 a3)
 ;;Denne map-prossedyren bruker operatorene fra liste a2 og anvender dem på liste a1 og a3.
-;;Det vil si at i dette eksemplet vil 6, -4, 21, 0.5 blir resultatet av map-operasjonen.
+;;Det vil si at i dette eksemplet vil 6, -4, 21, 1/2 blir resultatet av map-operasjonen.
 ;;Under er et eksempel på hvordan (lambda (x y z) (y x z)) man kalles direkte:
 ((lambda (x y z) (y x z)) 1337 + 420)
 ;;Resultatet blir 1757.
@@ -96,8 +96,16 @@ a1 a2 a3)
           (if (member? (car items) (symbols (left-branch current-branch)))
                 (cons 0 (encode-1 items (left-branch current-branch)))
                 (cons 1 (encode-1 items (right-branch current-branch)))))))
-  (encode-1 items tree)) 
+  (encode-1 items tree))
+
+(decode (encode '(ninjas fight ninjas) sample-tree) sample-tree)
           
+;;f)
+(define (grow-huffman-tree freqs)
+  (define (iter tree)
+    (null? (cdr tree))
+    
+    
 
 ;;h)
 (define (huffman-leaves tree)
