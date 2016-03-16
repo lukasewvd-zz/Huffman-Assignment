@@ -1,4 +1,4 @@
-;; Axel Boix og Lukas Wijgaart van Dijk
+;; Axel Boix og Lukas Dijk
 (load "huffman.scm")
 
 ;;Oppgave 1
@@ -39,8 +39,6 @@ foo 20)
 (define a3 (list 5 6 7 8))
 (map (lambda (x y z) (y x z))
 a1 a2 a3)
-;;
-;;
 
 ;;Oppgave 2
 ;;a)
@@ -90,18 +88,8 @@ a1 a2 a3)
       '()
       (if (leaf? current-branch)
           (encode-1 (cdr items) tree)
-          (if (member? (car items) (symbols (left-branch current-branch)))
-                (cons 0 (encode-1 items (left-branch current-branch)))
-                (cons 1 (encode-1 items (right-branch current-branch)))))))
-  (encode-1 items tree)) 
           
+      
 
-;;h)
-(define (huffman-leaves tree)
-  (if (leaf? tree)
-      (list (list (symbol-leaf tree)
-                  (weight-leaf tree)))
-      (append (huffman-leaves (left-branch tree))
-              (huffman-leaves (right-branch tree)))))
 
   
