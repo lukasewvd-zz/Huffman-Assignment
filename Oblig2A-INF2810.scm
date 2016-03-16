@@ -39,8 +39,11 @@ foo 20)
 (define a3 (list 5 6 7 8))
 (map (lambda (x y z) (y x z))
 a1 a2 a3)
-;;
-;;
+;;Denne map-prossedyren bruker operatorene fra liste a2 og anvender dem på liste a1 og a3.
+;;Det vil si at i dette eksemplet vil 6, -4, 21, 0.5 blir resultatet av map-operasjonen.
+;;Under er et eksempel på hvordan (lambda (x y z) (y x z)) man kalles direkte:
+((lambda (x y z) (y x z)) 1337 + 420)
+;;Resultatet blir 1757.
 
 ;;Oppgave 2
 ;;a)
