@@ -103,7 +103,12 @@ a1 a2 a3)
 ;;f)
 (define (grow-huffman-tree freqs)
   (define (iter tree)
-    (null? (cdr tree))
+    (if (null? (cdr tree))
+        (car tree)
+        (iter (adjoin-set
+               (make-code-tree (car tree) (cadr tree))
+               (cddr tree)))))
+  (iter (make-leaf-set freqs)))
     
     
 
