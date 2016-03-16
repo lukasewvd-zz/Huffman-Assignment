@@ -1,4 +1,4 @@
-;; Axel Boix og Lukas Dijk
+;; Axel Boix og Lukas Wijgaart van Dijk
 (load "huffman.scm")
 
 ;;Oppgave 1
