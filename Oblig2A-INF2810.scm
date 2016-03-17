@@ -139,3 +139,4 @@ a1 a2 a3)
               (huffman-leaves (right-branch tree)))))
 
 (huffman-leaves alfakode)
+(huffman-leaves sample-tree)
