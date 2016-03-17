@@ -111,6 +111,24 @@ a1 a2 a3)
   (iter (make-leaf-set freqs)))
     
     
+;;g)
+
+(define alfabet '((samurais 58) (ninjas 20) (fight 45) (night 12) (hide 3) (in 2) (ambush 2) (defeat 1) (the 5) (sword 4) (by 12) (assassin 1) (river 2) (forest 1) (wait 1) (poison 1)))
+(define alfakode (grow-huffman-tree alfabet))
+(define alfa-melding '(ninjas fight ninjas fight ninjas ninjas fight samurais samurais fight samurais fight ninjas ninjas fight by night))
+(length (encode alfa-melding alfakode))
+(length alfa-melding)
+(length alfabet)
+
+;; Den kodede meldingen har en lengde på 43 bits.
+
+;; Siden vi har 17 ord i meldingen kan vi finne gjennomsnitlig
+;; bitlengde ved å dele total antall bits med antall ord.
+(/ 43.0 17.0)
+;; Dette er tilnærmet 2.53 bits per ord.
+;;
+;; Det er 16 forskjellige ord, slik at alle ordene kan representeres med 4 bitlengde i et balansert tre.
+;; 4 * 17 ord i meldingen = 68 bits for å kode hele meldingen
 
 ;;h)
 (define (huffman-leaves tree)
@@ -120,4 +138,4 @@ a1 a2 a3)
       (append (huffman-leaves (left-branch tree))
               (huffman-leaves (right-branch tree)))))
 
-  
+(huffman-leaves alfakode)
